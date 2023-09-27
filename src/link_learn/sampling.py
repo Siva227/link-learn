@@ -11,13 +11,42 @@ from sklearn.utils import check_random_state, shuffle
 
 
 class GraphSampler:
-    sampler_dict = {
+    """Sampling using `littleballoffur` package
+
+    This class uses `littleballoffur` to generate train and test sets of edges and non-edges
+
+    Args:
+        input_network:
+        sampling_method:
+        alpha:
+        alpha_:
+        random_state:
+
+    Attributes:
+        sampler_dict: (class attribute) Implemented sampling method tags
+        input_network:
+        sampling_method:
+        alpha:
+        alpha_:
+        random_state:
+        G_ho:
+        G_tr:
+    """
+
+    sampler_dict: dict = {
         "rs": RandomEdgeSampler,
         "rswi": RandomEdgeSamplerWithInduction,
         "hnes": HybridNodeEdgeSampler,
     }
 
-    def __init__(self, input_network, sampling_method="rs", alpha=0.8, alpha_=0.8, random_state=42):
+    def __init__(
+        self,
+        input_network: nx.Graph,
+        sampling_method: str = "rs",
+        alpha: float = 0.8,
+        alpha_: float = 0.8,
+        random_state: int = 42,
+    ) -> None:
         self.input_network = input_network
         self.sampling_method = sampling_method
         self.alpha = alpha
@@ -29,6 +58,19 @@ class GraphSampler:
         self.G_tr.add_nodes_from(self.input_network.nodes)
 
     def sample(self, num_samples=10000, shuffle_flag=False):
+        """Sample edges and non-edges
+
+        Given the input graph, create sub-graphs with `alpha` fraction of edges
+        in training subgraph and `alpha_` fraction of edges in holdout subgraph.
+        Then sample `num_samples` edges and non-edges from the sub-graphs
+
+        Args:
+            num_samples:
+            shuffle_flag:
+
+        Returns:
+
+        """
         self.random_state = check_random_state(self.random_state)
         self.create_subgraphs()
         tr_df = self.get_pos_neg_edges(self.G_ho, self.G_tr)
@@ -48,6 +90,7 @@ class GraphSampler:
         return tr_sample, ho_sample
 
     def create_subgraphs(self):
+        """Create training and hold-out subgraphs with `alpha` and `alpha_` fraction of edges"""
         n_edges_ho = int(self.alpha * nx.number_of_edges(self.input_network))
         s1 = self.sampler_dict[self.sampling_method](n_edges_ho)
         G1: nx.Graph = s1.sample(self.input_network)
@@ -65,6 +108,15 @@ class GraphSampler:
         self.G_tr.add_edges_from(G2.edges)
 
     def get_pos_neg_edges(self, G_orig, G_sample):
+        """
+
+        Args:
+            G_orig:
+            G_sample:
+
+        Returns:
+
+        """
         all_node_pairs = itertools.combinations(G_orig.nodes, 2)
         pos_edges = list(set(G_orig.edges).difference(set(G_sample.edges)))
         neg_edges = [i for i in all_node_pairs if i not in G_orig.edges]
