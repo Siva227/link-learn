@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.bumpver]
+current_version = "v2023.1001-alpha"
+version_pattern = "vYYYY.BUILD[-TAG]"
+commit_message = "Bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"setup.cfg" = [
+    'version = {version}'
+]
+"README.md" = ['{version}']
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+lines_between_sections = 1
+known_first_party = "sentry"
+skip = "migrations"
