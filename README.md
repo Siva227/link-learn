@@ -13,7 +13,7 @@ Code Quality/CI:
 [img_license]: https://img.shields.io/badge/License-MIT-blue.svg
 [url_license]: https://github.com/mbarkhau/bumpver/blob/master/LICENSE
 
-[img_version]: https://img.shields.io/static/v1.svg?label=CalVer&message=2023.1126&color=blue
+[img_version]: https://img.shields.io/static/v1.svg?label=CalVer&message=v2023.1001-alpha&color=blue
 [url_version]: https://pypi.org/project/bumpver/
 
 [img_black]: https://img.shields.io/badge/code%20style-black-000000.svg
