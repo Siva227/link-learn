@@ -1,5 +1,5 @@
-LinkLearn package
-*****************
+Link-Learn package
+******************
 
 Subpackages
 ===========
