@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import graph_tool as gt
-import networkx as nx
 
 
 def get_prop_type(value, key=None):

@@ -26,3 +26,51 @@ line_length = 100
 lines_between_sections = 1
 known_first_party = "sentry"
 skip = "migrations"
+
+[tool.ruff]
+# all rules can be found here: https://beta.ruff.rs/docs/rules/
+select = ["E", "F", "W", "I"]
+
+ignore-init-module-imports = true
+src = ["src", "test"]
+
+# max line length for black
+line-length = 100
+target-version = "py38"
+
+ignore=[
+    # space before : (needed for how black formats slicing)
+    "E203",
+    # do not assign a lambda expression, use a def
+    "E731",
+    # do not use variables named 'l', 'O', or 'I'
+    "E741",
+    # Import not on the top of the file
+    "E402",
+]
+
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]

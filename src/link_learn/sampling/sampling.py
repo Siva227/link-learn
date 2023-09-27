@@ -1,5 +1,4 @@
 import itertools
-import warnings
 
 import networkx as nx
 import pandas as pd

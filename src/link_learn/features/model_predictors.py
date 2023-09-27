@@ -1,8 +1,7 @@
-import graph_tool as gt
 import networkx as nx
 import numpy as np
 from community import community_louvain
-from graph_tool.all import BlockState, minimize_blockmodel_dl
+from graph_tool.all import minimize_blockmodel_dl
 from infomap import Infomap
 
 from ..utils import nx2gt
