@@ -1,4 +1,5 @@
 from ._base import GlobalGraphPropertiesScorer, GraphScorer
+from .embedding_predictors import DeepWalkScorer, Node2VecScorer
 from .model_predictors import InfomapScorer, LouvainScorer, MDLScorer
 from .node_predictors import (
     AvgNeighborDegreeScorer,
