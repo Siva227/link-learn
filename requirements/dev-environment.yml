@@ -1,0 +1,32 @@
+name: ll-dev
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python = 3
+  - pandas
+  - numpy
+  - scikit-learn
+  - click
+  - shap
+  - gensim
+  - graph-tool
+  - libnetworkit
+  - networkx
+  - python-infomap
+  - python-louvain
+  - matplotlib
+  - seaborn
+  - notebook
+  - sphinx
+  - black
+  - ruff
+  - isort
+  - mypy
+  - pytest
+  - pip
+  - pip:
+      - build
+      - twine
+      - tensorflow
+      - littleballoffur
