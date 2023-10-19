@@ -19,8 +19,8 @@ class GraphSampler:
     Args:
         input_network: Input NetworkX graph object
         sampling_method: Choose between the {'rs', 'rswi', 'hnes'}
-        alpha: Fraction of edges to be sampled and included in the holdout graph
-        alpha\_: Fraction of edges to be sampled and included in the training graph
+        `alpha`: Fraction of edges to be sampled and included in the holdout graph
+        `alpha_`: Fraction of edges to be sampled and included in the training graph
         random_state: None, int or instance of RandomState
             If seed is None, return the RandomState singleton used by np.random.
             If seed is an int, return a new RandomState instance seeded with seed.
@@ -95,7 +95,9 @@ class GraphSampler:
         return tr_sample, ho_sample
 
     def create_subgraphs(self):
-        """Create holdout and training subgraphs with `alpha` and `alpha_` fraction of edges respectively."""
+        """Create holdout and training subgraphs with `alpha` and `alpha_` fraction of\
+        edges respectively.
+        """
         n_edges_ho = int(self.alpha * nx.number_of_edges(self.input_network))
         s1 = self.sampler_dict[self.sampling_method](n_edges_ho)
         G1: nx.Graph = s1.sample(self.input_network)
@@ -107,7 +109,8 @@ class GraphSampler:
         ho_num_e = G1.number_of_edges()
         tr_num_e = G2.number_of_edges()
         assert tr_num_e < ho_num_e < orig_num_e, (
-            f"Sampling failed: Expected edge counts\n(orig:{orig_num_e}, holdout:{n_edges_ho}, train:{n_edges_tr})\n"
+            f"Sampling failed: Expected edge counts\n(orig:{orig_num_e},"
+            f"holdout:{n_edges_ho}, train:{n_edges_tr})\n"
             f"Found edge counts\n(orig:{orig_num_e}, holdout:{ho_num_e}, train:{tr_num_e})\n"
         )
         self.G_tr.add_edges_from(G2.edges)

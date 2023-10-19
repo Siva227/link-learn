@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.metrics import auc
-from sklearn.utils import column_or_1d, check_consistent_length, assert_all_finite
+from sklearn.utils import assert_all_finite, check_consistent_length, column_or_1d
 from sklearn.utils.multiclass import type_of_target
 
 
