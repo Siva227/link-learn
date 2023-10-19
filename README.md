@@ -3,7 +3,7 @@
 Project/Repo:
 
 [![MIT License][img_license]][url_license]
-[![CalVer v2023.1003-alpha][img_version]][url_version]
+[![CalVer v2023.1004-alpha][img_version]][url_version]
 
 Code Quality/CI:
 
@@ -14,7 +14,7 @@ Code Quality/CI:
 [img_license]: https://img.shields.io/badge/License-MIT-blue.svg
 [url_license]: https://github.com/mbarkhau/bumpver/blob/master/LICENSE
 
-[img_version]: https://img.shields.io/static/v1.svg?label=CalVer&message=v2023.1003-alpha&color=blue
+[img_version]: https://img.shields.io/static/v1.svg?label=CalVer&message=v2023.1004-alpha&color=blue
 [url_version]: https://pypi.org/project/bumpver/
 
 [img_black]: https://img.shields.io/badge/code%20style-black-000000.svg
