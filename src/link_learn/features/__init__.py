@@ -22,3 +22,4 @@ from .pairwise_predictors import (
     PreferentialAttachmentScorer,
     ShortestPathScorer,
 )
+from .cannistraci_hebb_predictors import CannistraciHebbScorer
